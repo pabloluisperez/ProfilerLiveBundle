@@ -16,5 +16,5 @@
     "autoload": {
         "psr-0": { "Profiler\\LiveBundle": ""  }
     },
-    "target-dir": ""
+    "target-dir": "Profiler/LiveBundle"
 }
