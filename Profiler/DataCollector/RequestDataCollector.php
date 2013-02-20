@@ -2,7 +2,7 @@
 
 namespace Profiler\LiveBundle\Profiler\DataCollector;
 
-use Symfony\Bundle\FrameworkBundle\DataCollector\RequestDataCollector as BaseRequestDataCollector;
+use Symfony\Component\HttpKernel\DataCollector\RequestDataCollector as BaseRequestDataCollector;
 
 class RequestDataCollector extends BaseRequestDataCollector
 {
