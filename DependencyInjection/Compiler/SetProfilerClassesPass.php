@@ -20,11 +20,12 @@ class SetProfilerClassesPass implements CompilerPassInterface
         $supported = array(
             'sqlite'  => 'Profiler\LiveBundle\Profiler\Storage\SqliteProfilerStorage',
             'mysql'   => 'Profiler\LiveBundle\Profiler\Storage\MysqlProfilerStorage',
+            'file'   => 'Profiler\LiveBundle\Profiler\Storage\FileProfilerStorage',
         );
 
         list($class, ) = explode(':', $container->getParameter('profiler.storage.dsn'));
         if (!isset($supported[$class])) {
-            throw new \LogicException(sprintf('Driver "%s" is not supported for the live profiler.', $class));
+            throw new \LogicException(sprintf('Driver "%s" is not supported for the live profiler. %s', $class, $container->getParameter('profiler.storage.dsn')));
         }
 
         $container->getDefinition('profiler.storage')
